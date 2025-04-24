@@ -1,0 +1,20 @@
+{% extends 'AirlineCustomerSupport/base.html' %}
+{% block title %}My Messages{% endblock %}
+{% block content %}
+<h2>Your Support Tickets</h2>
+
+<ul class="list-group mt-3">
+  {% for ticket in tickets %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span><strong>{{ ticket.subject }}</strong> - {{ ticket.issue_type|capfirst }} ({{ ticket.status }})</span>
+      {% if ticket.request_code %}
+        <a href="{% url 'customer_chat' request_code=ticket.request_code %}" class="btn btn-sm btn-outline-primary">Open Chat</a>
+      {% else %}
+        <span class="text-muted">No chat available</span>
+      {% endif %}
+    </li>
+  {% empty %}
+    <li class="list-group-item text-muted">No support tickets found.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

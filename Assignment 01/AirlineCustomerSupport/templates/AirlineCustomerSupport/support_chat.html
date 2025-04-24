@@ -1,0 +1,42 @@
+{% extends 'AirlineCustomerSupport/base.html' %}
+{% load form_tags %}
+{% block title %}Respond to Ticket{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Responding to: {{ ticket.subject }}</h2>
+    <p><strong>Customer:</strong> {{ ticket.customer.username }}</p>
+    <p><strong>Status:</strong> {{ ticket.status|capfirst }}</p>
+
+    <div class="border rounded p-3 mb-3" style="max-height: 300px; overflow-y: scroll;">
+        {% for message in messages %}
+            <div class="mb-2">
+                <strong>{{ message.sender.username }}:</strong> {{ message.content }}
+                <small class="text-muted float-end">{{ message.timestamp|date:"M d, H:i" }}</small>
+            </div>
+        {% empty %}
+            <p class="text-muted">No messages yet.</p>
+        {% endfor %}
+    </div>
+
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.content.label_tag }}
+            {{ form.content|add_class:"form-control" }}
+        </div>
+
+        <div class="mb-3">
+            <label for="status">Update Ticket Status</label>
+            <select name="status" id="status" class="form-control">
+                {% for value, label in status_choices %}
+                    <option value="{{ value }}" {% if ticket.status == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Send Message & Update</button>
+        <a href="{% url 'agent_messages' %}" class="btn btn-secondary">Back to Requests</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'AirlineCustomerSupport/base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h2>Welcome, Admin {{ request.user.username }}</h2>
+<p class="lead">System management and elevated actions.</p>
+
+<div class="d-grid gap-3">
+    <a href="{% url 'user_manager' %}" class="btn btn-warning">Manage Users</a>
+    <a href="{% url 'chat_manager' %}" class="btn btn-secondary">View All Chats</a>
+    <a href="{% url 'manual_user_create' %}" class="btn btn-info">Create Support/Admin Users</a>
+</div>
+{% endblock %}

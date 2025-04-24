@@ -1,0 +1,43 @@
+{% extends 'AirlineCustomerSupport/base.html' %}
+{% block title %}Support Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Welcome, Support Agent {{ request.user.username }}</h2>
+    <p class="lead">Manage and respond to customer support requests efficiently.</p>
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="d-grid">
+                <a href="{% url 'agent_messages' %}" class="btn btn-primary btn-lg">
+                    View Support Requests
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="d-grid">
+                <a href="#" class="btn btn-outline-secondary btn-lg disabled">
+                    Your Profile
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="d-grid">
+                <a href="#" class="btn btn-warning btn-lg disabled">
+                    Escalate Issue (via chat)
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="d-grid">
+                <a href="{% url 'logout' %}" class="btn btn-danger btn-lg">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

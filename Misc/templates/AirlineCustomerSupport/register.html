@@ -1,0 +1,26 @@
+{% extends 'AirlineCustomerSupport/base.html' %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<h2>Register</h2>
+<form method="post" class="mt-3">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="id_username">Username</label>
+        {{ form.username }}
+    </div>
+    <div class="mb-3">
+        <label for="id_email">Email</label>
+        {{ form.email }}
+    </div>
+    <div class="mb-3">
+        <label for="id_password1">Password</label>
+        {{ form.password1 }}
+    </div>
+    <div class="mb-3">
+        <label for="id_password2">Confirm Password</label>
+        {{ form.password2 }}
+    </div>
+    <button type="submit" class="btn btn-success">Register</button>
+    <a href="{% url 'login' %}" class="btn btn-link">Back to Login</a>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'AirlineCustomerSupport/base.html' %}
+{% load form_tags %}
+{% block title %}Assigned Support Tickets{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Customer Support Requests</h2>
+
+    {% if tickets %}
+        <ul class="list-group mt-3">
+            {% for ticket in tickets %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>{{ ticket.subject }}</strong><br>
+                        <small class="text-muted">{{ ticket.issue_type|capfirst }} - {{ ticket.status|capfirst }}</small>
+                    </div>
+                    <a href="{% url 'support_chat' request_code=ticket.request_code %}" class="btn btn-sm btn-outline-primary">
+                        Open Chat
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-info mt-3">There are no support tickets at this time.</div>
+    {% endif %}
+</div>
+{% endblock %}

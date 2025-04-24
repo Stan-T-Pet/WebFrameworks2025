@@ -1,0 +1,27 @@
+{% extends 'AirlineCustomerSupport/base.html' %}
+{% load form_tags %}
+{% block title %}Submit Support Request{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>New Support Request</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.issue_type.label_tag }}
+            {{ form.issue_type|add_class:"form-control" }}
+        </div>
+        <div class="mb-3">
+            {{ form.subject.label_tag }}
+            {{ form.subject|add_class:"form-control" }}
+        </div>
+        <div class="mb-3">
+            {{ form.description.label_tag }}
+            {{ form.description|add_class:"form-control" }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Request</button>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
