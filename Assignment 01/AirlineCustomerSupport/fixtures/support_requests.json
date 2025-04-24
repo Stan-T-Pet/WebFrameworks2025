@@ -1,0 +1,106 @@
+[
+    {
+      "model": "AirlineCustomerSupport.supportrequest",
+      "pk": 1,
+      "fields": {
+        "customer": 3,
+        "issue_type": "airport",
+        "subject": "Lost luggage before check-in",
+        "description": "I lost my bag near check-in counter.",
+        "status": "open",
+        "request_code": "ABC12345",
+        "created_at": "2025-04-24T12:00:00Z"
+      }
+    },
+    {
+        "model": "AirlineCustomerSupport.supportrequest",
+        "pk": 2,
+        "fields": {
+        "customer": 4,
+        "issue_type": "airport",
+        "subject": "Flight delay",
+        "description": "My flight is delayed.",
+        "status": "open",
+        "request_code": "DEF67890",
+        "created_at": "2025-04-24T12:00:00Z"
+        }
+    },
+    {
+        "model": "AirlineCustomerSupport.supportrequest",
+        "pk": 3,
+        "fields": {
+        "customer": 5,
+        "issue_type": "general",
+        "subject": "General inquiry",
+        "description": "I have a general question.",
+        "status": "open",
+        "request_code": "GHI11223",
+        "created_at": "2025-04-24T12:00:00Z"
+        }
+    },
+    {
+        "model": "AirlineCustomerSupport.supportrequest",
+        "pk": 4,
+        "fields": {
+        "customer": 6,
+        "issue_type": "airline",
+        "subject": "Flight cancellation",
+        "description": "My flight was cancelled.",
+        "status": "open",
+        "request_code": "JKL44556",
+        "created_at": "2025-04-24T12:00:00Z"
+        }
+    },
+    {
+        "model": "AirlineCustomerSupport.supportrequest",
+        "pk": 5,
+        "fields": {
+        "customer": 7,
+        "issue_type": "airline",
+        "subject": "Baggage claim",
+        "description": "I need help with my baggage claim.",
+        "status": "open",
+        "request_code": "MNO77889",
+        "created_at": "2025-04-24T12:00:00Z"
+        }
+    },
+    {
+        "model": "AirlineCustomerSupport.supportrequest",
+        "pk": 6,
+        "fields": {
+        "customer": 8,
+        "issue_type": "airport",
+        "subject": "Security check issue",
+        "description": "I had an issue at the security check.",
+        "status": "open",
+        "request_code": "PQR99001",
+        "created_at": "2025-04-24T12:00:00Z"
+        }
+    },
+    {
+        "model": "AirlineCustomerSupport.supportrequest",
+        "pk": 7,
+        "fields": {
+        "customer": 1,
+        "issue_type": "general",
+        "subject": "Website feedback",
+        "description": "I have feedback about the website.",
+        "status": "open",
+        "request_code": "STU22334",
+        "created_at": "2025-04-24T12:00:00Z"
+        }
+    },
+    {
+        "model": "AirlineCustomerSupport.supportrequest",
+        "pk": 8,
+        "fields": {
+        "customer": 2,
+        "issue_type": "airline",
+        "subject": "Flight upgrade request",
+        "description": "I would like to request a flight upgrade.",
+        "status": "open",
+        "request_code": "VWX55667",
+        "created_at": "2025-04-24T12:00:00Z"
+        }
+    }
+] 

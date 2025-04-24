@@ -1,0 +1,23 @@
+[
+    {
+      "model": "AirlineCustomerSupport.message",
+      "pk": 1,
+      "fields": {
+        "support_request": 1,
+        "sender": 3,
+        "content": "Hi, I need help with my luggage.",
+        "timestamp": "2025-04-24T12:05:00Z"
+      }
+    },
+    {
+      "model": "AirlineCustomerSupport.message",
+      "pk": 2,
+      "fields": {
+        "support_request": 1,
+        "sender": 2,
+        "content": "We are checking now. Can you confirm your flight number?",
+        "timestamp": "2025-04-24T12:10:00Z"
+      }
+    }
+  ]
+  

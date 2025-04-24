@@ -5,9 +5,9 @@ from django.core.exceptions import PermissionDenied
 from django.contrib.admin.views.decorators import staff_member_required
 from .forms import CustomerRegisterForm, SupportRequestForm, MessageForm, ManualUserCreateForm
 from django.utils.crypto import get_random_string
-from .models import SupportRequest, Message
+from .models import SupportRequest, Message, CustomUser
 from django.contrib import messages
-import uuid
+
 
 
 # =========================
@@ -192,7 +192,8 @@ def chat_manager(request):
 @login_required
 @staff_member_required
 def user_manager(request):
-    return render(request, 'AirlineCustomerSupport/user_manager.html')
+    users = CustomUser.objects.all()
+    return render(request, 'AirlineCustomerSupport/user_manager.html', {'users': users})
 
 @login_required
 @staff_member_required
@@ -202,3 +203,56 @@ def manual_user_create(request):
         form.save()
         return redirect('admin_dashboard')
     return render(request, 'AirlineCustomerSupport/manual_user_create.html', {'form': form})
+
+
+@login_required
+@staff_member_required
+def view_user(request, user_id):
+    user = get_object_or_404(CustomUser, id=user_id)
+    return render(request, 'AirlineCustomerSupport/view_user.html', {'user': user})
+
+@login_required
+@staff_member_required
+def edit_user(request, user_id):
+    user = get_object_or_404(CustomUser, id=user_id)
+    
+    if request.method == 'POST':
+        form = ManualUserCreateForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "User updated successfully.")
+            return redirect('user_manager')
+        else:
+            messages.error(request, "Please correct the errors below.")
+    else:
+        form = ManualUserCreateForm(instance=user)
+
+    return render(request, 'AirlineCustomerSupport/edit_user.html', {'form': form, 'user': user})
+
+@login_required
+@staff_member_required
+def delete_user(request, user_id):
+    user = get_object_or_404(CustomUser, id=user_id)
+    if request.method == 'POST':
+        user.delete()
+        messages.success(request, "User deleted successfully.")
+        return redirect('user_manager')
+    return render(request, 'AirlineCustomerSupport/confirm_delete.html', {'user_obj': user})
+
+@login_required
+@staff_member_required
+def edit_user(request, user_id):
+    user_instance = get_object_or_404(CustomUser, id=user_id)
+
+    if request.method == 'POST':
+        form = ManualUserCreateForm(request.POST, instance=user_instance)
+        if form.is_valid():
+            form.save()
+            return redirect('user_manager')
+    else:
+        form = ManualUserCreateForm(instance=user_instance)
+
+    return render(request, 'AirlineCustomerSupport/edit_user.html', {
+        'form': form,
+        'user': user_instance
+    })

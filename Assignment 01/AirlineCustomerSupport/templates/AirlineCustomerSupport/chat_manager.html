@@ -1,0 +1,25 @@
+{% extends 'AirlineCustomerSupport/base.html' %}
+{% block title %}Chat Log Overview{% endblock %}
+{% block content %}
+<h2>All Chat Messages</h2>
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Sender</th>
+            <th>Support Request</th>
+            <th>Message</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for message in chats %}
+        <tr>
+            <td>{{ message.sender.username }}</td>
+            <td>{{ message.support_request.subject }}</td>
+            <td>{{ message.content }}</td>
+            <td>{{ message.timestamp|date:"Y-m-d H:i" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

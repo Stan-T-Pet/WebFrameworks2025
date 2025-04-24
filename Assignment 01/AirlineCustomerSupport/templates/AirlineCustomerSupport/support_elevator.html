@@ -1,0 +1,17 @@
+{% extends 'AirlineCustomerSupport/base.html' %}
+{% block title %}Support Elevator{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Elevate Request: {{ ticket.subject }}</h2>
+    <p><strong>Status:</strong> {{ ticket.status|capfirst }}</p>
+    <p><strong>Issue Type:</strong> {{ ticket.issue_type|capfirst }}</p>
+    <p><strong>Description:</strong> {{ ticket.description }}</p>
+    <p><strong>Customer:</strong> {{ ticket.customer.username }}</p>
+
+    <div class="mt-3">
+        <p>This request appears to be outside your support scope. Please notify an admin or escalate via internal tools.</p>
+        <a href="{% url 'support_dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

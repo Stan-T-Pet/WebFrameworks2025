@@ -1,0 +1,9 @@
+{% extends 'AirlineCustomerSupport/base.html' %}
+{% block content %}
+<h3>Are you sure you want to delete {{ user_obj.username }}?</h3>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'user_manager' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

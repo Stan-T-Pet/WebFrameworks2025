@@ -1,0 +1,61 @@
+[
+    {
+      "model": "AirlineCustomerSupport.customuser",
+      "pk": 1,
+      "fields": {
+        "username": "admin",
+        "email": "admin@admin.com",
+        "password": "password",
+        "role": "admin",
+        "is_staff": true,
+        "is_superuser": true
+      }
+    },
+    {
+      "model": "AirlineCustomerSupport.customuser",
+      "pk": 2,
+      "fields": {
+        "username": "airlinesupport",
+        "email": "airlinesupport@support.com",
+        "password": "password",
+        "role": "support",
+        "staff_id": "223456",
+        "is_staff": true
+      }
+    }, 
+    {
+        "model": "AirlineCustomerSupport.customuser",
+        "pk": 3,
+        "fields": {
+          "username": "airportsupport",
+          "email": "airportsupport@support.com",
+          "password": "password",
+          "role": "support",
+          "staff_id": "323456",
+          "is_staff": true
+        }
+      }, 
+      {
+        "model": "AirlineCustomerSupport.customuser",
+        "pk": 4,
+        "fields": {
+          "username": "generalsupport",
+          "email": "generalsupport@support.com",
+          "password": "password",
+          "role": "support",
+          "staff_id": "423456",
+          "is_staff": true
+        }
+      },
+    {
+      "model": "AirlineCustomerSupport.customuser",
+      "pk": 5,
+      "fields": {
+        "username": "user",
+        "email": "user@user1.com",
+        "password": "password",
+        "role": "customer"
+      }
+    }
+  ]
+  

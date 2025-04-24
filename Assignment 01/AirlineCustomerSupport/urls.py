@@ -28,7 +28,8 @@ urlpatterns = [
     path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
     path('chat-manager/', views.chat_manager, name='chat_manager'),
     path('user-manager/', views.user_manager, name='user_manager'),
-
-    # TESTING ONLY
+    path('user/<int:user_id>/', views.view_user, name='view_user'),
+    path('user/<int:user_id>/edit/', views.edit_user, name='edit_user'),
+    path('user/<int:user_id>/delete/', views.delete_user, name='delete_user'),
     path('manual-user-create/', views.manual_user_create, name='manual_user_create'),
 ]
